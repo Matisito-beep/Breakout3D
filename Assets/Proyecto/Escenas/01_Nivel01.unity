@@ -209,6 +209,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21565871}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &102639348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102639349}
+  - component: {fileID: 102639350}
+  m_Layer: 0
+  m_Name: ControladorJuego
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &102639349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102639348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1479715708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102639350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102639348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e700f4cfe49774e9ceb9c0ac31ce63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControladorJuego
+  vidasIniciales: 3
+  textoPuntaje: {fileID: 1011749399}
+  textoVidas: {fileID: 1245644763}
+  panelGameOver: {fileID: 274635870}
+  panelVictoria: {fileID: 1920720044}
+  contenedorBloques: {fileID: 1007366319}
+  pelota: {fileID: 628310654}
 --- !u!1001 &128810123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -819,7 +870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &274635871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1257,7 +1308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 345342509}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1479715709}
+        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
+        m_MethodName: IrAlMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &345342509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1441,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 377036958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1479715709}
+        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
+        m_MethodName: IniciarJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &377036958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2028,6 +2103,7 @@ GameObject:
   - component: {fileID: 628310652}
   - component: {fileID: 628310651}
   - component: {fileID: 628310650}
+  - component: {fileID: 628310654}
   m_Layer: 9
   m_Name: Pelota
   m_TagString: Pelota
@@ -2155,6 +2231,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628310648}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &628310654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628310648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63756df8f61fdc479c9da9fab3f5d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControladorPelota
+  velocidad: 13
+  puntoSpawn: {fileID: 216840534}
+  accionLanzar: {fileID: -342073802457659686, guid: eb47a9777e9834e40910098ddd76db35, type: 3}
 --- !u!1001 &629422865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2497,7 +2588,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 705103003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1479715709}
+        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
+        m_MethodName: IrAlMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &705103003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3632,7 +3735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -120, y: -50}
+  m_AnchoredPosition: {x: 220, y: -50}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011749399
@@ -4267,6 +4370,7 @@ GameObject:
   - component: {fileID: 1208530939}
   - component: {fileID: 1208530938}
   - component: {fileID: 1208530937}
+  - component: {fileID: 1208530940}
   m_Layer: 7
   m_Name: ZonaMuerte
   m_TagString: ZonaMuerte
@@ -4367,6 +4471,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208530935}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1208530940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208530935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da81707aba7b6a14d82b0d118bf16235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZonaMuerte
 --- !u!1 &1245644761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,7 +4517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 160, y: -50}
+  m_AnchoredPosition: {x: -220, y: -50}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1245644763
@@ -5097,6 +5213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1479715708}
+  - component: {fileID: 1479715709}
   m_Layer: 0
   m_Name: Sistemas
   m_TagString: Untagged
@@ -5116,9 +5233,22 @@ Transform:
   m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 102639349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479715709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479715707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322473fdd8803d045a7680dc1d37c881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuInicio
 --- !u!1001 &1483436869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5390,6 +5520,7 @@ GameObject:
   - component: {fileID: 1530249766}
   - component: {fileID: 1530249768}
   - component: {fileID: 1530249767}
+  - component: {fileID: 1530249769}
   m_Layer: 8
   m_Name: Paleta
   m_TagString: Paleta
@@ -5462,6 +5593,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 0.6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1530249769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530249765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85785fe61ec8fe4092a57051b89aebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControladorPaleta
+  velocidad: 15
+  limiteX: 8.5
+  accionMover: {fileID: -6330236563210936656, guid: eb47a9777e9834e40910098ddd76db35, type: 3}
 --- !u!1001 &1554198978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6672,7 +6818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1920720045
 RectTransform:
   m_ObjectHideFlags: 0
