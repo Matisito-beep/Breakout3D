@@ -45,7 +45,11 @@ public class ControladorJuego : MonoBehaviour
         ActualizarTextos();
 
         if (vidas <= 0)
+        {
             panelGameOver.SetActive(true);
+            CongelarJuego();
+        }
+            
         else
             pelota.Reiniciar();
 
@@ -54,9 +58,13 @@ public class ControladorJuego : MonoBehaviour
     void RevisarVictoria()
     {
         int bloquesRestantes = contenedorBloques.GetComponentsInChildren<Bloque>().Length;
-        if (bloquesRestantes <=1)
-            panelVictoria.SetActive(true);
+        if (bloquesRestantes <= 1)
+        {
+           panelVictoria.SetActive(true);
             controladorAudio.ReproducirEfecto(controladorAudio.sfxVictoria);
+            CongelarJuego(); 
+        }
+            
             
 
     }
@@ -65,5 +73,10 @@ public class ControladorJuego : MonoBehaviour
     {
         textoPuntaje.text= "PUNTAJE: " + puntaje.ToString("0000");
         textoVidas.text = "VIDAS: " + vidas.ToString();
+    }
+
+    void CongelarJuego()
+    {
+        Time.timeScale = 0f;
     }
 }
