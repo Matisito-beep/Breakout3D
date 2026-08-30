@@ -13,6 +13,7 @@ public class ControladorJuego : MonoBehaviour
 
     private int puntaje = 0;
     private int vidas;
+    private ControladorAudio controladorAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,7 @@ public class ControladorJuego : MonoBehaviour
         puntaje = 0;
         vidas = vidasIniciales;
         ActualizarTextos();
+        controladorAudio = GameObject.FindFirstObjectByType<ControladorAudio>();
         
     }
 
@@ -32,6 +34,7 @@ public class ControladorJuego : MonoBehaviour
     public void SumarPuntaje(int cantidad)
     {
         puntaje += cantidad;
+        pelota.Acelerar();
         ActualizarTextos();
         RevisarVictoria();
     }
@@ -53,6 +56,8 @@ public class ControladorJuego : MonoBehaviour
         int bloquesRestantes = contenedorBloques.GetComponentsInChildren<Bloque>().Length;
         if (bloquesRestantes <=1)
             panelVictoria.SetActive(true);
+            controladorAudio.ReproducirEfecto(controladorAudio.sfxVictoria);
+            
 
     }
 
