@@ -37,6 +37,8 @@ public class ControladorPelota : MonoBehaviour
     }
 
     // Update is called once per frame
+   
+
     void Update()
     {
         if (enJuego == false)
@@ -46,14 +48,7 @@ public class ControladorPelota : MonoBehaviour
             if (accionLanzar.action.WasPressedThisFrame())
                 Lanzar();
         }
-
-        
-    }
-
-    void FixedUpdate()
-    {
-        if (enJuego == false)
-            return;
+            
         
         Vector3 direccion = rb.linearVelocity.normalized;
         
